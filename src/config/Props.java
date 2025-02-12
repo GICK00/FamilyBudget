@@ -11,7 +11,7 @@ public class Props {
         }
 
         Properties tempProperties = new Properties();
-        tempProperties.setProperty("db.url","jdbc:postgresql://localhost:5432/postgres");
+        tempProperties.setProperty("db.url","jdbc:postgresql://localhost:5432/FamilyBudget");
         tempProperties.setProperty("db.user","postgres");
         tempProperties.setProperty("db.password","admin");
 

@@ -110,6 +110,23 @@ public class MainForm extends Application {
                     .append(partner.getId())
                     .append(")\"")
                     .append("><table><tr><td>")
+                    .append(partner.getFio())
+                    .append("</td><td>")
+                    .append("<tr><td>")
+                    .append(partner.getAge())
+                    .append("</td><td>")
+                    .append(partner.getPost())
+                    .append("%</td></tr>");
+            htmlContent.append("<tr><td>")
+                    .append(partner.getOrganization())
+                    .append("</td><td></td></tr>");
+            htmlContent
+                    .append("<tr><td>")
+                    .append(partner.getSalary())
+                    .append("</td><td></td></tr>");
+            htmlContent
+                    .append("<tr><td>")
+                    .append(partner.getExpenses())
                     .append("</td><td></td></tr></table></div>");
         }
         htmlContent.append("""
