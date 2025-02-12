@@ -13,6 +13,7 @@
         {
             "type": "java",
             "name": "App",
+            "vmArgs": "--module-path 'C:\\Program Files\\Java\\javafx-sdk-23.0.2\\lib' --add-modules javafx.controls",
             "request": "launch",
             "mainClass": "App",
             "projectName": "FamilyBudget_81743148"
