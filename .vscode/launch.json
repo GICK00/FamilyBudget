@@ -6,16 +6,18 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
+            "name": "MainForm",
+            "request": "launch",            
+            "vmArgs": "--module-path 'C:\\Program Files\\Java\\javafx-sdk-23.0.2\\lib' --add-modules javafx.controls,javafx.web",
+
+            "mainClass": "forms.MainForm",
+            "projectName": "FamilyBudget_81743148"
         },
         {
             "type": "java",
-            "name": "App",
-            "vmArgs": "--module-path 'C:\\Program Files\\Java\\javafx-sdk-23.0.2\\lib' --add-modules javafx.controls",
+            "name": "MainForm",
             "request": "launch",
-            "mainClass": "App",
+            "mainClass": "MainForm",
             "projectName": "FamilyBudget_81743148"
         }
     ]
