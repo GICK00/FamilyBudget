@@ -17,8 +17,8 @@ public class MainFormDAO {
 
         Properties properties = Props.loadProperties();
         String url = properties.getProperty("db.url");
-        String user = properties.getProperty("db.postgres");
-        String password = properties.getProperty("db.admin");
+        String user = properties.getProperty("db.user");
+        String password = properties.getProperty("db.password");
 
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
 
