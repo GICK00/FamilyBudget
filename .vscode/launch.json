@@ -9,15 +9,7 @@
             "name": "MainForm",
             "request": "launch",            
             "vmArgs": "--module-path 'C:\\Program Files\\Java\\javafx-sdk-23.0.2\\lib' --add-modules javafx.controls,javafx.web",
-
             "mainClass": "forms.MainForm",
-            "projectName": "FamilyBudget_81743148"
-        },
-        {
-            "type": "java",
-            "name": "MainForm",
-            "request": "launch",
-            "mainClass": "MainForm",
             "projectName": "FamilyBudget_81743148"
         }
     ]

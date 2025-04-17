@@ -2,8 +2,6 @@ package forms;
 
 import dao.MainFormDAO;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -49,7 +47,7 @@ public class MainForm extends Application {
         webView.prefWidthProperty().bind(root.widthProperty());
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({ "unused" })
     private void updateWebView() {
         var partners = dao.getAllRecords();
 
@@ -138,23 +136,27 @@ public class MainForm extends Application {
         WebEngine webEngine = webView.getEngine();
 
         webEngine.getLoadWorker().stateProperty().addListener(
-                new ChangeListener() {
-                    @Override
-                    public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                        if (newValue != Worker.State.SUCCEEDED) {
-                            return;
-                        }
+            (observable, oldValue, newValue) -> {
+                if (newValue == Worker.State.SUCCEEDED) {
+                    JSObject window = (JSObject) webEngine.executeScript("window");
+                    window.setMember("listListener", new ListListener(this));
+                }
+            });
 
-                        JSObject window = (JSObject) webEngine.executeScript("window");
-                        window.setMember("listListener", new ListListener());
-                    }
-                });
         webEngine.loadContent(htmlContent.toString());
     }
 
     public static class ListListener {
+        private MainForm mainForm;
+
+        public ListListener(MainForm mainForm) {
+            this.mainForm = mainForm;
+        }
+
+        @SuppressWarnings("unused")
         public void clickItem(int id) {
-            System.out.println("clickItem " + id + " called");
+            EditForm editForm = new EditForm();
+            editForm.showEditForm(id, (v) -> mainForm.updateWebView());
         }
     }
 }
